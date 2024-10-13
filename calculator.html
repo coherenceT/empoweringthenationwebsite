@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculate Fees | Empowering the Nation</title>
+    <link rel="stylesheet" href="css/calculator.css">
+    <script defer src="js/calculator.js"></script>
+</head>
+<body>
+    <header>
+        <img src="images/logo.png" alt="Empowering the Nation Logo" class="logo">
+        <h1>Empowering the Nation</h1>
+    </header>
+
+    <nav>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="six_month_courses.html">Six-Month Courses</a></li>
+            <li><a href="six_week_courses.html">Six-Week Courses</a></li>
+            <li><a href="calculator.html">Calculate Fees</a></li>
+            <li><a href="contact.html">Contact</a></li>
+        </ul>
+    </nav>
+
+    <main>
+        <section>
+            <h2>Calculate Fees</h2>
+            <p>Select the courses you're interested in, and we'll calculate the estimated total cost, including discounts and VAT (15%).</p>
+
+            <form id="feesForm">
+                <label for="name">Name:</label>
+                <input type="text" id="name" name="name" required>
+                
+                <label for="phone">Phone Number:</label>
+                <input type="text" id="phone" name="phone" required>
+                
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" required>
+
+                <fieldset>
+                    <legend>Select Courses:</legend>
+                    <input type="checkbox" id="firstAid" name="courses" value="1500">
+                    <label for="firstAid">First Aid (R1500)</label><br>
+
+                    <input type="checkbox" id="sewing" name="courses" value="1500">
+                    <label for="sewing">Sewing (R1500)</label><br>
+
+                    <input type="checkbox" id="landscaping" name="courses" value="1500">
+                    <label for="landscaping">Landscaping (R1500)</label><br>
+
+                    <input type="checkbox" id="lifeSkills" name="courses" value="1500">
+                    <label for="lifeSkills">Life Skills (R1500)</label><br>
+
+                    <input type="checkbox" id="childMinding" name="courses" value="750">
+                    <label for="childMinding">Child Minding (R750)</label><br>
+
+                    <input type="checkbox" id="cooking" name="courses" value="750">
+                    <label for="cooking">Cooking (R750)</label><br>
+
+                    <input type="checkbox" id="gardenMaintenance" name="courses" value="750">
+                    <label for="gardenMaintenance">Garden Maintenance (R750)</label>
+                </fieldset>
+
+                <button type="button" onclick="calculateFees()">Calculate Fees</button>
+            </form>
+
+            <h3>Estimated Total: <span id="totalFees">R0.00</span></h3>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 Empowering the Nation. All rights reserved.</p>
+    </footer>
+
+    <script>
+        function calculateFees() {
+            const checkboxes = document.querySelectorAll('input[name="courses"]:checked');
+            let total = 0;
+            checkboxes.forEach((checkbox) => {
+                total += parseInt(checkbox.value);
+            });
+
+            // Calculate Discount
+            let discount = 0;
+            if (checkboxes.length === 2) {
+                discount = 0.05;
+            } else if (checkboxes.length === 3) {
+                discount = 0.10;
+            } else if (checkboxes.length > 3) {
+                discount = 0.15;
+            }
+
+            const discountedTotal = total - (total * discount);
+            const vat = discountedTotal * 0.15;
+            const finalTotal = discountedTotal + vat;
+
+            document.getElementById('totalFees').innerText = `R${finalTotal.toFixed(2)}`;
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,154 @@
+
+body {
+    font-family: 'Helvetica Neue', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #FFFFFF; /* White background */
+    color: #000000; /* Black text */
+}
+
+/* Header Styles */
+header {
+    background-color: #F0F0F0; /* Light grey background */
+    color: #000000; /* Black text */
+    padding: 1.5rem;    text-align: center;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+header img.logo {
+    max-width: 150px;
+    margin-bottom: 10px;
+}
+
+/* Navigation Styles */
+nav {
+    background-color: #FFFFFF; /* White background */
+    border-top: 2px solid #000000; /* Black border */
+    border-bottom: 2px solid #000000; /* Black border */
+}
+
+nav ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    text-align: center;
+}
+
+nav ul li {
+    display: inline;
+    margin-right: 15px;
+}
+
+nav ul li a {
+    color: #000000; /* Black text */
+    text-decoration: none;
+    padding: 10px 20px;
+    font-weight: bold;
+}
+
+nav ul li a:hover {
+    background-color: #E0E0E0; /* Light grey background */
+    color: #000000; /* Black text */
+    transition: background-color 0.3s, color 0.3s;
+    border-radius: 5px;
+}
+
+/* Main Section Styles */
+main {
+    padding: 30px;
+    background-color: #F9F9F9; /* Very light grey background */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    margin: 20px auto;
+    max-width: 1200px;
+}
+
+/* Course Image Styles */
+.course-image {
+    width: 100%; /* Responsive width for images */
+    height: auto; /* Maintain aspect ratio */
+    border-radius: 5px; /* Rounded corners for images */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Subtle shadow for images */
+}
+
+/* Section Header Styles */
+h2 {
+    color: #000000; /* Black text */
+    font-size: 2rem;
+    margin-bottom: 20px;
+}
+
+h3 {
+    color: #555555; /* Slightly lighter color for sub-headers */
+}
+
+/* Footer Styles */
+footer {
+    text-align: center;
+    padding: 1.5rem;
+    background-color: #F0F0F0; /* Light grey background */
+    color: #000000; /* Black text */
+    margin-top: 40px;
+    border-top: 2px solid #000000; /* Black border */
+}
+
+/* Slideshow Styles */
+.slideshow-container {
+    position: relative;
+    max-width: 800px; /* Adjust width as needed */
+    margin: auto;
+    overflow: hidden;
+    border-radius: 10px;
+}
+
+.slideshow-image {
+    display: none;
+    position: absolute;
+    width: 100%;
+    height: auto;
+}
+
+.slideshow-description {
+    position: absolute;
+    bottom: 20px;
+    left: 20px;
+    background-color: rgba(0, 0, 0, 0.7);
+    color: white;
+    padding: 10px;
+    border-radius: 5px;
+    display: none;
+}
+
+.slideshow-container img {
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+}
+
+/* Display description on hover */
+.slideshow-container:hover .slideshow-description {
+    display: block;
+}
+
+/* Image Gallery Styles */
+.image-gallery {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+    margin-top: 20px;
+}
+
+.image-gallery img {
+    width: 100%;
+    max-width: 300px; /* Adjust width as needed */
+    height: auto;
+    border: 2px solid #000000; /* Black border */
+    border-radius: 10px;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.image-gallery img:hover {
+    transform: scale(1.05);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+}

@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Empowering the Nation</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <style>
+        .image-gallery {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+            margin-top: 20px;
+        }
+
+        .image-container {
+            position: relative;
+            width: 200px; /* Adjust width as needed */
+        }
+
+        .image-container img {
+            width: 100%;
+            height: auto;
+            border-radius: 10px;
+            transition: opacity 0.3s, transform 0.3s;
+        }
+
+        .image-container img:hover {
+            opacity: 0.7;
+            transform: scale(1.05);
+        }
+
+        .description {
+            position: absolute;
+            bottom: 10px;
+            left: 10px;
+            background-color: rgba(0, 0, 0, 0.7);
+            color: white;
+            padding: 5px;
+            border-radius: 5px;
+            display: none;
+        }
+
+        .image-container:hover .description {
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <img src="images/logo.png" alt="Empowering the Nation Logo" class="logo">
+        <h1>Empowering the Nation</h1>
+        <p>Upskilling domestic workers and gardeners since 2018.</p>
+    </header>
+
+    <nav>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="six_month_courses.html">Six-Month Courses</a></li>
+            <li><a href="six_week_courses.html">Six-Week Courses</a></li>
+            <li><a href="calculator.html">Calculate Fees</a></li>
+            <li><a href="contact.html">Contact</a></li>
+            <li><a href="about.html">About Us</a></li>
+        </ul>
+    </nav>
+
+    <main>
+        <section>
+            <h2>Welcome to Empowering the Nation</h2>
+            <p>Our mission is to provide high-quality skills training for domestic workers and gardeners in South Africa. Through our specialized courses, we aim to help individuals gain marketable skills and improve their livelihood opportunities.</p>
+            <div class="image-gallery">
+                <div class="image-container">
+                    <img src="images/first_aid.jpg" alt="First Aid Training" onclick="window.location.href='first_aid.html'">
+                    <div class="description">Learn essential first aid skills to handle emergencies effectively.</div>
+                </div>
+                <div class="image-container">
+                    <img src="images/sewing.jpg" alt="Sewing Skills" onclick="window.location.href='sewing.html'">
+                    <div class="description">Discover the art of sewing and make your own garments and repairs.</div>
+                </div>
+                <div class="image-container">
+                    <img src="images/landscaping.jpg" alt="Landscaping Course" onclick="window.location.href='landscaping.html'">
+                    <div class="description">Enhance your gardening skills and create beautiful landscapes.</div>
+                </div>
+            </div>
+            <p>Explore our courses and find the right training for you. Whether you’re an employer looking to upskill your staff or an individual seeking to learn new skills, we’re here to help.</p>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 Empowering the Nation. All rights reserved.</p>
+    </footer>
+</body>
+</html>
