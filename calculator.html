@@ -5,9 +5,70 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Calculate Fees | Empowering the Nation</title>
     <link rel="stylesheet" href="css/calculator.css">
-    <script defer src="js/calculator.js"></script>
+    <script defer src="js/basket.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"> 
+    <style>
+        footer {
+            text-align: center;
+            padding: 1.5rem;
+            background-color: #F0F0F0; /* Light grey background */
+            color: #000000; /* Black text */
+            margin-top: 40px;
+            border-top: 2px solid #000000; /* Black border */
+        }
+
+        .social-media-icons {
+            margin-top: 10px;
+        }
+
+        .social-media-icons a {
+            color: #000000; /* Black icons */
+            text-decoration: none;
+            margin: 0 10px;
+            font-size: 1.5rem; /* Adjust size as needed */
+        }
+
+        .social-media-icons a:hover {
+            color: #E0E0E0; /* Light grey on hover */
+        }
+
+        .contact-info {
+            margin-top: 20px;
+            padding: 20px;
+            background-color: #F9F9F9; /* Very light grey background */
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+        }
+
+        .contact-info h2 {
+            margin-top: 0;
+        }
+
+        .contact-info .contact-box {
+            background-color: #FFFFFF; /* White background */
+            border: 1px solid #DDDDDD; /* Light grey border */
+            border-radius: 5px;
+            padding: 15px;
+            margin-bottom: 15px;
+        }
+
+        .contact-info .contact-box h3 {
+            margin-top: 0;
+        }
+
+        .map-container {
+            margin-top: 20px;
+        }
+
+        .map-container iframe {
+            width: 100%;
+            height: 400px; /* Adjust height as needed */
+            border: 0;
+            border-radius: 10px;
+        }
+    </style>
 </head>
-<body>
+<body onload="preselectCourses()">
     <header>
         <img src="images/logo.png" alt="Empowering the Nation Logo" class="logo">
         <h1>Empowering the Nation</h1>
@@ -20,6 +81,7 @@
             <li><a href="six_week_courses.html">Six-Week Courses</a></li>
             <li><a href="calculator.html">Calculate Fees</a></li>
             <li><a href="contact.html">Contact</a></li>
+            <li><a href="about.html">About Us</a></li>
         </ul>
     </nav>
 
@@ -28,59 +90,98 @@
             <h2>Calculate Fees</h2>
             <p>Select the courses you're interested in, and we'll calculate the estimated total cost, including discounts and VAT (15%).</p>
 
-            <form id="feesForm">
-                <label for="name">Name:</label>
-                <input type="text" id="name" name="name" required>
-                
-                <label for="phone">Phone Number:</label>
-                <input type="text" id="phone" name="phone" required>
-                
-                <label for="email">Email:</label>
-                <input type="email" id="email" name="email" required>
+            <fieldset>
+                <legend>Select Courses:</legend>
+                <div class="course-container">
+                    <div class="course-box">
+                        <label>
+                            <input type="checkbox" id="firstAid" name="courses" value="1500" onchange="updateSelection(this)">
+                            <img src="images/first_aid.jpg" alt="First Aid">
+                            <h4>First Aid</h4>
+                            <p>R1500</p>
+                        </label>
+                    </div>
+                    <div class="course-box">
+                        <label>
+                            <input type="checkbox" id="sewing" name="courses" value="1500" onchange="updateSelection(this)">
+                            <img src="images/sewing.jpg" alt="Sewing">
+                            <h4>Sewing</h4>
+                            <p>R1500</p>
+                        </label>
+                    </div>
+                    <div class="course-box">
+                        <label>
+                            <input type="checkbox" id="landscaping" name="courses" value="1500" onchange="updateSelection(this)">
+                            <img src="images/landscaping.jpg" alt="Landscaping">
+                            <h4>Landscaping</h4>
+                            <p>R1500</p>
+                        </label>
+                    </div>
+                    <div class="course-box">
+                        <label>
+                            <input type="checkbox" id="lifeSkills" name="courses" value="1500" onchange="updateSelection(this)">
+                            <img src="images/life_skills.jpg" alt="Life Skills">
+                            <h4>Life Skills</h4>
+                            <p>R1500</p>
+                        </label>
+                    </div>
+                    <div class="course-box">
+                        <label>
+                            <input type="checkbox" id="childMinding" name="courses" value="750" onchange="updateSelection(this)">
+                            <img src="images/child_minding.jpg" alt="Child Minding">
+                            <h4>Child Minding</h4>
+                            <p>R750</p>
+                        </label>
+                    </div>
+                    <div class="course-box">
+                        <label>
+                            <input type="checkbox" id="cooking" name="courses" value="750" onchange="updateSelection(this)">
+                            <img src="images/cooking.jpg" alt="Cooking">
+                            <h4>Cooking</h4>
+                            <p>R750</p>
+                        </label>
+                    </div>
+                    <div class="course-box">
+                        <label>
+                            <input type="checkbox" id="gardenMaintenance" name="courses" value="750" onchange="updateSelection(this)">
+                            <img src="images/garden_maintenance.jpg" alt="Garden Maintenance">
+                            <h4>Garden Maintenance</h4>
+                            <p>R750</p>
+                        </label>
+                    </div>
+                </div>
+            </fieldset>
 
-                <fieldset>
-                    <legend>Select Courses:</legend>
-                    <input type="checkbox" id="firstAid" name="courses" value="1500">
-                    <label for="firstAid">First Aid (R1500)</label><br>
-
-                    <input type="checkbox" id="sewing" name="courses" value="1500">
-                    <label for="sewing">Sewing (R1500)</label><br>
-
-                    <input type="checkbox" id="landscaping" name="courses" value="1500">
-                    <label for="landscaping">Landscaping (R1500)</label><br>
-
-                    <input type="checkbox" id="lifeSkills" name="courses" value="1500">
-                    <label for="lifeSkills">Life Skills (R1500)</label><br>
-
-                    <input type="checkbox" id="childMinding" name="courses" value="750">
-                    <label for="childMinding">Child Minding (R750)</label><br>
-
-                    <input type="checkbox" id="cooking" name="courses" value="750">
-                    <label for="cooking">Cooking (R750)</label><br>
-
-                    <input type="checkbox" id="gardenMaintenance" name="courses" value="750">
-                    <label for="gardenMaintenance">Garden Maintenance (R750)</label>
-                </fieldset>
-
-                <button type="button" onclick="calculateFees()">Calculate Fees</button>
-            </form>
+            <button type="button" onclick="calculateFees()">Calculate Fees</button>
 
             <h3>Estimated Total: <span id="totalFees">R0.00</span></h3>
         </section>
     </main>
 
-    <footer>
-        <p>&copy; 2024 Empowering the Nation. All rights reserved.</p>
-    </footer>
-
     <script>
+        function updateSelection(checkbox) {
+            const courseBox = checkbox.closest('.course-box');
+            if (checkbox.checked) {
+                courseBox.classList.add('selected'); // Add class if checked
+            } else {
+                courseBox.classList.remove('selected'); // Remove class if unchecked
+            }
+        }
+    
         function calculateFees() {
             const checkboxes = document.querySelectorAll('input[name="courses"]:checked');
+    
+            // Check if no courses are selected
+            if (checkboxes.length === 0) {
+                alert("Please select at least one course to calculate fees.");
+                return; // Stop the function if no courses are selected
+            }
+    
             let total = 0;
             checkboxes.forEach((checkbox) => {
                 total += parseInt(checkbox.value);
             });
-
+    
             // Calculate Discount
             let discount = 0;
             if (checkboxes.length === 2) {
@@ -90,13 +191,29 @@
             } else if (checkboxes.length > 3) {
                 discount = 0.15;
             }
-
+    
             const discountedTotal = total - (total * discount);
             const vat = discountedTotal * 0.15;
             const finalTotal = discountedTotal + vat;
-
+    
             document.getElementById('totalFees').innerText = `R${finalTotal.toFixed(2)}`;
+    
+            // After calculating fees, ask user if they want to create an account
+            const createAccount = confirm("Would you like to create an account to enroll in these courses?");
+            
+            if (createAccount) {
+                window.location.href = 'create_account.html'; // Redirect to account creation page
+            } else {
+                alert("Thank you for your interest!"); // Thank the user if they decline
+            }
         }
     </script>
-</body>
+<footer>
+    <p>&copy; 2024 Empowering the Nation. All rights reserved.</p>
+    <div class="social-media-icons">
+        <a href="https://facebook.com/yourpage" target="_blank" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+        <a href="https://twitter.com/yourpage" target="_blank" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+        <a href="https://instagram.com/yourpage" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+    </div>
+</footer>
 </html>

@@ -9,16 +9,17 @@ body {
     justify-content: center;
     align-items: center;
     height: 100vh;
+    flex-direction: column;
 }
 
 header {
     text-align: center;
-    margin-bottom: 30px;
+    margin-bottom: 10px;
 }
 
 .logo {
-    max-width: 120px;
-    margin-bottom: 20px;
+    max-width: 100px;  /* Slightly smaller logo */
+    margin-bottom: 10px;
     transition: transform 0.3s ease-in-out, box-shadow 0.3s;
 }
 
@@ -30,32 +31,33 @@ header {
 /* Centered form container with shadow */
 main {
     background-color: #F0F0F0; /* Light grey background */
-    padding: 40px;
+    padding: 30px;  /* Reduced padding */
     box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
     border-radius: 10px;
-    max-width: 400px;
+    max-width: 360px;  /* Slightly smaller form */
     width: 100%;
     text-align: center;
+    margin-bottom: 80px; /* Ensure space for footer */
 }
 
 h2 {
     color: #000000;
-    margin-bottom: 30px;
-    font-size: 2rem;
+    margin-bottom: 20px; /* Reduced margin */
+    font-size: 1.8rem;  /* Slightly smaller font size */
 }
 
 form {
     display: flex;
     flex-direction: column;
-    gap: 20px;
+    gap: 15px; /* Reduced gap between fields */
 }
 
 /* Input field styling */
 input[type="email"], input[type="password"] {
-    padding: 12px;
+    padding: 10px;  /* Smaller padding */
     border: 1px solid #CCCCCC;
     border-radius: 5px;
-    font-size: 1rem;
+    font-size: 0.9rem; /* Smaller text size */
     transition: border-color 0.3s, box-shadow 0.3s;
     width: 100%;
 }
@@ -68,10 +70,10 @@ input[type="email"]:focus, input[type="password"]:focus {
 
 /* Button styling */
 button {
-    padding: 15px;
+    padding: 12px; /* Smaller padding */
     background-color: #000000;
     color: #FFFFFF;
-    font-size: 1.1rem;
+    font-size: 1rem; /* Slightly smaller font size */
     font-weight: bold;
     border: none;
     border-radius: 5px;
@@ -88,7 +90,7 @@ button:hover {
 .error-message {
     color: red;
     font-size: 0.9rem;
-    margin-top: -10px;
+    margin-top: -8px; /* Reduced margin */
 }
 
 /* Link styling */
@@ -117,12 +119,14 @@ main {
     animation: fadeIn 0.8s ease-in-out;
 }
 
+/* Footer adjustments */
 footer {
     text-align: center;
-    padding: 20px;
+    padding: 10px; /* Smaller padding */
     background-color: #F0F0F0;
     position: fixed;
     bottom: 0;
     width: 100%;
     border-top: 2px solid #000000;
+    font-size: 0.9rem; /* Slightly smaller font size */
 }

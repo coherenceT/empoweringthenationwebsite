@@ -57,7 +57,7 @@ nav ul li a:hover {
     color: #000000;
 }
 
-/* Form styles */
+/* Main styles */
 main {
     padding: 30px;
     background-color: #F9F9F9;
@@ -72,28 +72,51 @@ h2, h3 {
     text-align: center;
 }
 
+.course-container {
+    display: flex;
+    flex-wrap: wrap; /* Allows wrapping of boxes */
+    justify-content: space-between; /* Space between boxes */
+}
+
+.course-box {
+    background-color: #f9f9f9; /* Background color for the boxes */
+    border: 1px solid #ccc; /* Border for the boxes */
+    border-radius: 10px; /* Rounded corners */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Shadow for depth effect */
+    margin: 10px; /* Space between boxes */
+    padding: 20px; /* Padding inside the box */
+    width: calc(25% - 40px); /* Width of the box, adjust as needed */
+    transition: transform 0.3s, box-shadow 0.3s; /* Smooth transition for hover effect */
+}
+
+.course-box.selected {
+    transform: translateY(-10px); /* Move the box up slightly when selected */
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.4); /* Increase shadow when selected */
+}
+
+.course-box label {
+    display: block; /* Block display for label */
+    text-align: center; /* Center the text */
+}
+
+.course-box img {
+    max-width: 100%; /* Ensure images don't overflow the box */
+    height: auto; /* Maintain aspect ratio */
+    border-radius: 5px; /* Rounded corners for images */
+}
+
+.course-box:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.2);
+}
+
+/* Form styles */
 form {
     display: flex;
     flex-direction: column;
     gap: 15px;
     margin: 20px auto;
     max-width: 400px;
-}
-
-label {
-    font-weight: bold;
-}
-
-input[type="text"], input[type="email"], input[type="tel"] {
-    padding: 10px;
-    border: 1px solid #CCC;
-    border-radius: 5px;
-    width: 100%;
-    font-size: 1rem;
-}
-
-input[type="checkbox"] {
-    margin-right: 10px;
 }
 
 button {
@@ -117,38 +140,6 @@ button:hover {
     font-weight: bold;
     text-align: center;
     margin-top: 20px;
-}
-
-#totalFees.calculated {
-    animation: highlight 0.3s ease-in-out;
-}
-
-@keyframes highlight {
-    from {
-        background-color: #e0ffe0;
-    }
-    to {
-        background-color: transparent;
-    }
-}
-
-input[type="text"]:focus, input[type="email"]:focus, input[type="tel"]:focus {
-    outline: none;
-    border-color: #4CAF50;
-    box-shadow: 0 0 5px #4CAF50;
-}
-
-fieldset {
-    border: 1px solid #CCC;
-    padding: 15px;
-    border-radius: 5px;
-    margin-bottom: 15px;
-}
-
-legend {
-    font-weight: bold;
-    padding: 0 10px;
-    color: #000000;
 }
 
 footer {
