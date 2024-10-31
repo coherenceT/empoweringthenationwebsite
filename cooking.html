@@ -67,6 +67,35 @@
         }
     </style>
 
+    <script>
+        // JavaScript for course navigation functionality
+        const courses = [
+            'child_minding.html',
+            'garden_maintenance.html',
+            'cooking.html'
+        ];
+        
+        let currentCourseIndex = 2; // Start with the current course (Cooking)
+
+        document.addEventListener('DOMContentLoaded', function () {
+            const nextCourseBtn = document.querySelector('button[onclick="goToNextCourse()"]');
+
+            if (nextCourseBtn) {
+                nextCourseBtn.addEventListener('click', function () {
+                    // Increment the current course index
+                    currentCourseIndex++;
+
+                    // Loop back to the first course if we exceed the array length
+                    if (currentCourseIndex >= courses.length) {
+                        currentCourseIndex = 0;
+                    }
+
+                    // Navigate to the next course
+                    window.location.href = courses[currentCourseIndex];
+                });
+            }
+        });
+    </script>
 </head>
 <body>
     <header>
@@ -98,6 +127,9 @@
                 <li>Planning meals</li>
                 <li>Preparation and cooking of meals</li>
             </ul>
+            <div class="course-navigation">
+                <button onclick="goToNextCourse()">Next Course</button>
+            </div>
         </section>
     </main>
 
@@ -111,4 +143,3 @@
     </footer>
 </body>
 </html>
-

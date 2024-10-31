@@ -7,6 +7,8 @@
     <link rel="stylesheet" href="css/calculator.css">
     <script defer src="js/basket.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"> 
+    <script defer src="js/checkout.js"></script>
+
     <style>
         footer {
             text-align: center;
@@ -135,85 +137,45 @@
                     </div>
                     <div class="course-box">
                         <label>
-                            <input type="checkbox" id="cooking" name="courses" value="750" onchange="updateSelection(this)">
-                            <img src="images/cooking.jpg" alt="Cooking">
-                            <h4>Cooking</h4>
-                            <p>R750</p>
+                            <input type="checkbox" id="gardening" name="courses" value="1500" onchange="updateSelection(this)">
+                            <img src="images/garden_maintenance.jpg" alt="Gardening">
+                            <h4>Gardening</h4>
+                            <p>R1500</p>
                         </label>
                     </div>
                     <div class="course-box">
                         <label>
-                            <input type="checkbox" id="gardenMaintenance" name="courses" value="750" onchange="updateSelection(this)">
-                            <img src="images/garden_maintenance.jpg" alt="Garden Maintenance">
-                            <h4>Garden Maintenance</h4>
-                            <p>R750</p>
+                            <input type="checkbox" id="cooking" name="courses" value="1500" onchange="updateSelection(this)">
+                            <img src="images/cooking.jpg" alt="Cooking">
+                            <h4>Cooking</h4>
+                            <p>R1500</p>
+                        </label>
+                    </div>
+                    <div class="course-box">
+                        <label>
+                            <input type="checkbox" id="precious" name="courses" value="1500" onchange="updateSelection(this)">
+                            <img src="images/precious.jpg" alt="Precious">
+                            <h4>Precious</h4>
+                            <p>R1500</p>
                         </label>
                     </div>
                 </div>
             </fieldset>
 
-            <button type="button" onclick="calculateFees()">Calculate Fees</button>
+            <h3>Total Cost:</h3>
+            <p id="totalCost">R0.00</p>
+            <button id="proceedToCheckoutButton">Proceed to Checkout</button>
 
-            <h3>Estimated Total: <span id="totalFees">R0.00</span></h3>
         </section>
     </main>
 
-    <script>
-        function updateSelection(checkbox) {
-            const courseBox = checkbox.closest('.course-box');
-            if (checkbox.checked) {
-                courseBox.classList.add('selected'); // Add class if checked
-            } else {
-                courseBox.classList.remove('selected'); // Remove class if unchecked
-            }
-        }
-    
-        function calculateFees() {
-            const checkboxes = document.querySelectorAll('input[name="courses"]:checked');
-    
-            // Check if no courses are selected
-            if (checkboxes.length === 0) {
-                alert("Please select at least one course to calculate fees.");
-                return; // Stop the function if no courses are selected
-            }
-    
-            let total = 0;
-            checkboxes.forEach((checkbox) => {
-                total += parseInt(checkbox.value);
-            });
-    
-            // Calculate Discount
-            let discount = 0;
-            if (checkboxes.length === 2) {
-                discount = 0.05;
-            } else if (checkboxes.length === 3) {
-                discount = 0.10;
-            } else if (checkboxes.length > 3) {
-                discount = 0.15;
-            }
-    
-            const discountedTotal = total - (total * discount);
-            const vat = discountedTotal * 0.15;
-            const finalTotal = discountedTotal + vat;
-    
-            document.getElementById('totalFees').innerText = `R${finalTotal.toFixed(2)}`;
-    
-            // After calculating fees, ask user if they want to create an account
-            const createAccount = confirm("Would you like to create an account to enroll in these courses?");
-            
-            if (createAccount) {
-                window.location.href = 'create_account.html'; // Redirect to account creation page
-            } else {
-                alert("Thank you for your interest!"); // Thank the user if they decline
-            }
-        }
-    </script>
-<footer>
-    <p>&copy; 2024 Empowering the Nation. All rights reserved.</p>
-    <div class="social-media-icons">
-        <a href="https://facebook.com/yourpage" target="_blank" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
-        <a href="https://twitter.com/yourpage" target="_blank" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
-        <a href="https://instagram.com/yourpage" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
-    </div>
-</footer>
+    <footer>
+        <p>&copy; 2024 Empowering the Nation. All rights reserved.</p>
+        <div class="social-media-icons">
+            <a href="https://facebook.com/yourpage" target="_blank" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+            <a href="https://twitter.com/yourpage" target="_blank" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+            <a href="https://instagram.com/yourpage" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+        </div>
+    </footer>
+</body>
 </html>

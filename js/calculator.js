@@ -51,3 +51,20 @@ function calculateFees() {
     totalFeesElement.classList.add('calculated');
     setTimeout(() => totalFeesElement.classList.remove('calculated'), 2000);
 }
+
+// Update selection function to calculate total cost dynamically
+let totalCost = 0;
+
+function updateSelection(checkbox) {
+    const price = parseFloat(checkbox.value);
+    if (checkbox.checked) {
+        totalCost += price;
+    } else {
+        totalCost -= price;
+    }
+    document.getElementById("totalFees").innerText = "R" + totalCost.toFixed(2);
+}
+
+document.getElementById("checkoutButton").addEventListener("click", function() {
+    alert("Proceeding to checkout. An invoice will be generated.");
+});

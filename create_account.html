@@ -66,6 +66,11 @@
             border: 0;
             border-radius: 10px;
         }
+
+        .error-message {
+            color: red;
+            margin-top: 10px;
+        }
     </style>
 </head>
 <body>
@@ -76,7 +81,7 @@
     <main>
         <section>
             <h2>Create Your Account</h2>
-            <form id="createAccountForm">
+            <form id="createAccountForm" onsubmit="return validateForm()">
                 <label for="email">Email:</label>
                 <input type="email" id="email" name="email" required>
 
@@ -101,6 +106,22 @@
             <a href="https://instagram.com/yourpage" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
         </div>
     </footer>
+
+    <script>
+        function validateForm() {
+            const email = document.getElementById('email').value.trim();
+            const password = document.getElementById('password').value.trim();
+            const confirmPassword = document.getElementById('confirmPassword').value.trim();
+            const errorMessageElement = document.getElementById('error-message');
+
+            if (password !== confirmPassword) {
+                errorMessageElement.textContent = "Passwords do not match!";
+                return false;
+            }
+
+            errorMessageElement.textContent = ""; // Clear error message if validation passes
+            return true; // Form is valid
+        }
+    </script>
 </body>
 </html>
-

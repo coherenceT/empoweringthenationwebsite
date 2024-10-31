@@ -21,6 +21,9 @@ document.getElementById('createAccountForm').addEventListener('submit', function
     // Store user credentials in localStorage
     localStorage.setItem(email, password);
 
+    // If the user is requesting an invoice, set the invoiceGenerated flag
+    localStorage.setItem('invoiceGenerated', 'true');
+
     alert('Account created successfully! You can now log in.');
     window.location.href = 'login.html'; // Redirect to login page
 });

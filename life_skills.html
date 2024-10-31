@@ -67,6 +67,36 @@
         }
     </style>  
 
+    <script>
+        // JavaScript for course navigation functionality
+        const courses = [
+            'first_aid.html',
+            'sewing.html', // Now the next course after Life Skills is Sewing
+            'landscaping.html'
+        ];
+        
+        let currentCourseIndex = 0; // Start with the current course (Life Skills)
+
+        document.addEventListener('DOMContentLoaded', function () {
+            const nextCourseBtn = document.querySelector('button[onclick="goToNextCourse()"]');
+
+            if (nextCourseBtn) {
+                nextCourseBtn.addEventListener('click', function () {
+                    // Increment the current course index
+                    currentCourseIndex++;
+
+                    // Loop back to the first course if we exceed the array length
+                    if (currentCourseIndex >= courses.length) {
+                        currentCourseIndex = 0;
+                    }
+
+                    // Navigate to the next course
+                    window.location.href = courses[currentCourseIndex];
+                });
+            }
+        });
+    </script>
+</head>
 <body>
     <header>
         <img src="images/logo.png" alt="Empowering the Nation Logo" class="logo">
@@ -97,6 +127,9 @@
                 <li>Basic reading and writing literacy</li>
                 <li>Basic numeric literacy</li>
             </ul>
+            <div class="course-navigation">
+                <button onclick="goToNextCourse()">Next Course</button>
+            </div>
         </section>
     </main>
 

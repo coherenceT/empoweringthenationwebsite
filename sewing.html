@@ -99,6 +99,9 @@
                 <li>Alterations</li>
                 <li>Designing and sewing new garments</li>
             </ul>
+            <div class="course-navigation">
+                <button id="nextCourseBtn">Next Course</button>
+            </div>
         </section>
     </main>
 
@@ -110,5 +113,37 @@
             <a href="https://instagram.com/yourpage" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
         </div>
     </footer>
+
+    <script>
+        // Array of course URLs in the desired order
+        const courses = [
+            'first_aid.html',
+            'landscaping.html',
+            'life_skills.html',
+            'sewing.html'
+        ];
+
+        // Variable to keep track of the current course index
+        let currentCourseIndex = 3; // Set to the current course index (Sewing)
+
+        document.addEventListener('DOMContentLoaded', function () {
+            const nextCourseBtn = document.getElementById('nextCourseBtn');
+            
+            if (nextCourseBtn) {
+                nextCourseBtn.addEventListener('click', function () {
+                    // Increment the current course index
+                    currentCourseIndex++;
+                    
+                    // Loop back to the first course if we exceed the array length
+                    if (currentCourseIndex >= courses.length) {
+                        currentCourseIndex = 0;
+                    }
+
+                    // Navigate to the next course
+                    window.location.href = courses[currentCourseIndex];
+                });
+            }
+        });
+    </script>
 </body>
 </html>
